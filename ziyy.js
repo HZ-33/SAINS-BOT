@@ -7,7 +7,8 @@
 // .....
 // case ini full rest api gw ya bang jadi kalian sung pake ae gausah beli hehe
 
-// jangan terlalu di recode jika tidak bisa merecode
+
+// jangan terlalu di recode jika tidak bisa merecode
 const {
   WAConnection: _WAConnection,
   MessageType,
@@ -147,7 +148,8 @@ let _scommand = JSON.parse(fs.readFileSync("./library/database/scommand.json"));
             })
             return status
             }
-            var datw = new Date();  
+            var datw = new Date();
+  
             var tahun = datw.getFullYear();
             var bulan = datw.getMonth();
             var tanggal = datw.getDate();
@@ -246,9 +248,11 @@ let _scommand = JSON.parse(fs.readFileSync("./library/database/scommand.json"));
 		    var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 		    var Link = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
     		const messagesCC = pes.slice(0).trim().split(/ +/).shift()
-            body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(mek.message[type].fileSha256.toString('base64')) !== null && getCmd(mek.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message[type].fileSha256.toString('base64')) : ""
+
+            body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(mek.message[type].fileSha256.toString('base64')) !== null && getCmd(mek.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message[type].fileSha256.toString('base64')) : ""
     		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
-           	tody = type === "conversation" && mek.message.conversation.startsWith(prefix) ? mek.message.conversation : type == "imageMessage" && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : type == "videoMessage" && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : type == "extendedTextMessage" && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : "";            
+           	tody = type === "conversation" && mek.message.conversation.startsWith(prefix) ? mek.message.conversation : type == "imageMessage" && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : type == "videoMessage" && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : type == "extendedTextMessage" && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : "";
+            
             const commandy = tody.slice(1).trim().split(/ +/).shift().toLowerCase()	
             const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
             const commando = body.slice(1).trim().split(/ +/).shift().toLowerCase()	
@@ -259,7 +263,8 @@ let _scommand = JSON.parse(fs.readFileSync("./library/database/scommand.json"));
 	    	const botNumberss = ALDI.user.jid + '@c.us'
 	     	const isGroup = from.endsWith('@g.us')
 	    	let sender = isGroup ? mek.participant : mek.key.remoteJid
-            var isBtn = Object.keys(mek.message)[0] === "buttonsResponseMessage" ? mek.message.buttonsResponseMessage.selectedButtonId : ""
+
+            var isBtn = Object.keys(mek.message)[0] === "buttonsResponseMessage" ? mek.message.buttonsResponseMessage.selectedButtonId : ""
 
 	     	const totalchat = await ALDI.chats.all()
 	    	const groupMetadata = isGroup ? await ALDI.groupMetadata(from) : ''
@@ -605,19 +610,7 @@ sendEphemeral: false,
             } else if (ngetik) {
             await ALDI.updatePresence(from, Presence.composing)
             }
-
-switch(isBtn){
-
-            case 'pingg':
-            reeq =`
-SPEED : ${gaya}${latensiu.toFixed(4)} scond${gaya}
-            `
-            replyFakeLink(reeq)
-            break
-
-}
-
- switch (command || commando || commandy) {
+ switch (command || commando) {
 //========[ jadibot case ]=========\\
             case 'jadibot':
             if (!mek.key.fromMe && !isOwner) return reply('*Ente owner?_*')
@@ -839,7 +832,11 @@ List prefix
 `atau bisa pilih dibutton`,
             [
             {
-            buttonId: `setprefix multi`,buttonText: {displayText: `multi`,},type: 1,
+            buttonId: `setprefix multi`,
+buttonText: {
+displayText: `multi`,
+},
+type: 1,
             },
             {
             buttonId: `setprefix nopref`,
