@@ -101,7 +101,7 @@ ownerNumber = ["62896053930095@s.whatsapp.net"]
 ownerN = '62896053930095';
 fake = "/> 𝔰 𝔞 𝔦 𝔫 𝔰   𝔟 𝔬 𝔱";
 ownerName = 'ΛᄂPΉΛ BӨƬ';
-namabot = 'sᴀɪɴs ʙᴏᴛ';
+namabot = 'ΛᄂPΉΛ BӨƬ';
 ZiyKey = 'xZiyy' // jangan di ganti karena ini api fitur nya ya
 
 
