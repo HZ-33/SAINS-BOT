@@ -90,17 +90,17 @@ prefa = '!'
 
 // vn/read/ngetik
 aread = false
-vn = true
+vn = false
 ngetik = false
 
 // public/self
 self = false,
 
 //EDIT DI INI KAK
-ownerNumber = ["6285697725326@s.whatsapp.net"]
-ownerN = '6285697725326';
+ownerNumber = ["62896053930095@s.whatsapp.net"]
+ownerN = '62896053930095';
 fake = "/> 𝔰 𝔞 𝔦 𝔫 𝔰   𝔟 𝔬 𝔱";
-ownerName = 'xZiyy';
+ownerName = 'ΛᄂPΉΛ BӨƬ';
 namabot = 'sᴀɪɴs ʙᴏᴛ';
 ZiyKey = 'xZiyy' // jangan di ganti karena ini api fitur nya ya
 
