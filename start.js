@@ -176,8 +176,8 @@ quoted: {
 "message": {
 "groupInviteMessage": {
 "groupJid": "628983583288-1620319322@g.us",
-"inviteCode": "NgsCIU2lXKh3VHJT",
-"groupName": "IstMeALDI",
+"inviteCode": "HKj01pUAcGrDEWfMaKbqMc",
+"groupName": "ΛᄂPΉΛ BӨƬ",
 "jpegThumbnail": fs.readFileSync('./library/gambar/imageFake.jpeg'),
 "caption": `ALDI FAUZI`
 }
